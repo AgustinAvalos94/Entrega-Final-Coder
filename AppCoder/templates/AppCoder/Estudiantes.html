@@ -1,0 +1,47 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <img src="../../../media/Estudiantes2.jpg" class="img-fluid">
+    <div class="container-fluid">
+        <div class="row justify-content-center bg-gradient bg-primary">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h3>Listado de Estudiantes:</h3>
+                    <!-- Signup form-->
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- * * SB Forms Contact Form * *-->
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- This form is pre-integrated with SB Forms.-->
+                    <!-- To make this form functional, sign up at-->
+                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                    <!-- to get an API token!-->
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% for p in estudiantes %}
+        <div class="text-center bg-secondary bg-gradient">
+            <li>{{p}}</li>  
+            <div class="offset-1">
+                <button:focus:not>
+                    <a class="btn btn-outline-danger text-white" href="{% url 'EliminarEstudiante' p.nombre %}"> Eliminar</a>
+                    <a class="btn btn-outline-success text-white" href="{% url 'EditarEstudiante' p.nombre %}"> Editar</a>
+                </button>
+             </div>
+        </div>   
+        
+
+    {% endfor %}
+    <br>
+    <br>
+    <div class="text-center">
+        <button:focus:not>
+        <a class="btn btn-outline-primary" :focus :hover href="agregarEstudiante">Agregar otro Estudiante</a> 
+        </button>
+    </div>  
+{% endblock %}
